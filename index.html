@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinni's Home Tuition - Vizag's Best Home Tuition Service</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --maroon: #5C1E1E;
+            --golden: #F9A825;
+            --off-white: #FDF8F5;
+            --white: #FFFFFF;
+            --dark-text: #2C2C2C;
+            --light-text: #666666;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--off-white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--maroon);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--maroon);
+        }
+
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--maroon);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--maroon) 0%, #7A2828 100%);
+            color: var(--white);
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 300px;
+            height: 300px;
+            background: rgba(249, 168, 37, 0.1);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 200px;
+            height: 200px;
+            background: rgba(249, 168, 37, 0.15);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            background: var(--golden);
+            color: var(--dark-text);
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(249, 168, 37, 0.4);
+        }
+
+        .hero-images {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .hero-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid var(--golden);
+            object-fit: cover;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .hero-image:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(249, 168, 37, 0.4);
+        }
+      
+        .hero-cta-mobile {
+            display: none;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--maroon);
+            margin-bottom: 3rem;
+            font-weight: bold;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--light-text);
+        }
+
+        /* Boards Section */
+        .boards {
+            background: var(--off-white);
+        }
+
+        .boards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .board-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .board-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .board-logo {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .board-item:hover .board-logo {
+            transform: scale(1.1);
+        }
+
+        /* Classes Section */
+        .classes {
+            background: var(--white);
+        }
+
+        .classes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .class-card {
+            background: linear-gradient(135deg, var(--golden), #FFB74D);
+            color: var(--dark-text);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(249, 168, 37, 0.2);
+            border: 2px solid transparent;
+        }
+
+        .class-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(249, 168, 37, 0.4);
+            border-color: var(--maroon);
+        }
+
+        .class-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--maroon);
+            font-weight: bold;
+        }
+
+        .class-card p {
+            color: var(--dark-text);
+            opacity: 0.8;
+        }
+
+        /* Entrance Exams */
+        .exams {
+            background: var(--off-white);
+        }
+
+        .exams-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .exam-badge {
+            background: linear-gradient(135deg, var(--maroon), #7A2828);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(92, 30, 30, 0.2);
+            border: 2px solid transparent;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .exam-badge:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(92, 30, 30, 0.4);
+            border-color: var(--golden);
+        }
+
+        .exam-badge i {
+            font-size: 2rem;
+            color: var(--golden);
+            margin-bottom: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .exam-badge:hover i {
+            transform: scale(1.2);
+        }
+
+        .exam-badge h3 {
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            background: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            background: linear-gradient(135deg, var(--off-white), #F5F0E8);
+            text-align: center;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 2px solid transparent;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(249, 168, 37, 0.3);
+            border-color: var(--golden);
+            background: linear-gradient(135deg, var(--white), var(--off-white));
+        }
+
+        .feature-item i {
+            font-size: 3rem;
+            color: var(--golden);
+            margin-bottom: 1rem;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .feature-item:hover i {
+            transform: scale(1.2);
+            color: var(--maroon);
+        }
+
+        .feature-item h3 {
+            color: var(--maroon);
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .feature-item p {
+            color: var(--light-text);
+            line-height: 1.6;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--off-white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 2px solid transparent;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(249, 168, 37, 0.3);
+            border-color: var(--golden);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .testimonial-card:hover .testimonial-avatar {
+            transform: scale(1.1);
+        }
+
+        .stars {
+            color: var(--golden);
+            margin-top: 0.5rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--maroon), #7A2828);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-form {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            max-width: 500px;
+            margin: 2rem auto 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--dark-text);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--maroon);
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: var(--white);
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128C7E;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--white);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            background: linear-gradient(135deg, var(--off-white), #F5F0E8);
+            text-align: center;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 2px solid transparent;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(249, 168, 37, 0.3);
+            border-color: var(--golden);
+            background: linear-gradient(135deg, var(--white), var(--off-white));
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            color: var(--golden);
+            margin-bottom: 1rem;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .contact-item:hover i {
+            transform: scale(1.2);
+            color: var(--maroon);
+        }
+
+        .contact-item h3 {
+            color: var(--maroon);
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .contact-item p {
+            color: var(--light-text);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--maroon);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--golden);
+        }
+
+        .footer-section a {
+            color: var(--white);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--golden);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: var(--golden);
+            color: var(--maroon);
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            /* Mobile Hero Section - Smaller and Compact */
+            .hero {
+                padding: 80px 0 50px; /* Reduced padding */
+            }
+
+            .hero-content {
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem; /* Reduced gap */
+              text-align: center;
+            }
+            
+            .hero-text {
+                order: 1;
+            }
+
+            .hero-images {
+                order: 2;
+            }
+
+            .hero-cta-mobile {
+                order: 3;
+                display: block;
+            }
+
+            .hero-text h1 {
+                font-size: 1.6rem; /* Smaller text */
+                margin-bottom: 0.8rem;
+                line-height: 1.3;
+            }
+
+            .hero-text p {
+                font-size: 1rem; /* Smaller paragraph text */
+                margin-bottom: 1.5rem;
+            }
+          
+            .hero-text .cta-button {
+                display: none; /* Hide desktop CTA button */
+            }
+
+            .cta-button {
+                padding: 12px 24px; /* Smaller button */
+                font-size: 1rem;
+            }
+
+            /* Keep images in single line on mobile */
+            .hero-images {
+                flex-direction: row; /* Keep horizontal */
+                gap: 1rem; /* Reduced gap */
+                justify-content: center;
+                flex-wrap: nowrap; /* Prevent wrapping */
+            }
+
+            .hero-image {
+                width: 120px; /* Smaller images */
+                height: 120px;
+                border-width: 3px; /* Thinner border */
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .section-title {
+                font-size: 1.8rem; /* Smaller section titles */
+            }
+
+            .section {
+                padding: 50px 0; /* Reduced section padding */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            /* Extra small mobile adjustments */
+            .hero {
+                padding: 70px 0 40px; /* Even smaller hero */
+            }
+
+            .hero-text h1 {
+                font-size: 1.4rem; /* Even smaller heading */
+                margin-bottom: 0.6rem;
+            }
+
+            .hero-text p {
+                font-size: 0.9rem; /* Smaller paragraph */
+                margin-bottom: 1.2rem;
+            }
+
+            .cta-button {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .hero-images {
+                gap: 0.8rem; /* Minimal gap */
+            }
+
+            .hero-image {
+                width: 100px; /* Smallest images */
+                height: 100px;
+                border-width: 2px;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .section {
+                padding: 40px 0;
+            }
+
+            .logo {
+                font-size: 1.5rem; /* Smaller logo on mobile */
+            }
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+            color: #FFF;
+            text-decoration: none;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        /* Responsive adjustments for mobile */
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">Vinni's Home Tuition</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#classes">Classes</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#cta">Book Demo</a></li>
+            </ul>
+            <button class="mobile-menu" id="mobileMenu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>VIZAG'S Best Tuition – VINNI'S HOME TUITION</h1>
+                    <p>Empowering your children's ranking dreams with Vinni's personal guidance</p>
+                    <a href="tel:+919985726692" class="cta-button">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
+                </div>
+                <div class="hero-images">
+                    <img src="https://s3.amazonaws.com/magoosh-company-site/wp-content/uploads/praxis/files/2016/07/30160244/student-teaching-strategies.jpg" alt="Teacher with student" class="hero-image">
+                    <img src="https://media.licdn.com/dms/image/v2/C4E12AQHVEpttOldt9g/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1568664455966?e=2147483647&v=beta&t=gjKvMVVH_mo7cnNElQ9hbrA5STXxCCFZlgZm7Q-SOlA" alt="Confident student" class="hero-image">
+                </div>
+              <div class="hero-cta-mobile">
+                    <a href="tel:+919985726692" class="cta-button">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Vinitha</h2>
+            <div class="about-content">
+                <img src="https://myhometuitions.com/wp-content/uploads/2024/12/wH0r4ZXATY27J4dPVLUlEw.jpg" alt="Vinitha - Home Tutor" class="about-image">
+                <div class="about-text">
+                  <p>Welcome to <strong>Vinni's Home Tuition!</strong> I'm Vinitha, a passionate educator dedicated to nurturing young minds and helping students achieve their academic dreams. With years of experience in teaching across various boards and competitive exam preparation, I believe in providing personalized attention to each student.</p>
+                    <p>My mission is simple: to create a supportive learning environment where every child can excel. I understand that each student has unique learning needs, and I tailor my teaching methods accordingly. From building strong foundations to advanced problem-solving techniques, I'm here to guide your child every step of the way.</p>
+                    <p>Join hundreds of successful students who have achieved their ranking dreams with my guidance. Let's work together to unlock your child's full potential!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Boards Section -->
+    <section class="section boards">
+        <div class="container">
+            <h2 class="section-title">We Teach Across All Major Boards</h2>
+            <div class="boards-grid">
+                <div class="board-item">
+                    <img src="https://e7.pngegg.com/pngimages/694/117/png-clipart-andhra-pradesh-uttar-pradesh-states-and-territories-of-india-telangana-chief-minister-andhrapradesh-miscellaneous-logo.png" alt="State Board Logo" class="board-logo">
+                    <h3>State Board</h3>
+                </div>
+                <div class="board-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLvhOIYkqHuPI04p_Fbg-unTXMa7v_BQQriQ&s" alt="CBSE Logo" class="board-logo">
+                    <h3>CBSE</h3>
+                </div>
+                <div class="board-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/a/a6/CISCE_logo.png" alt="ICSE Logo" class="board-logo">
+                    <h3>ICSE</h3>
+                </div>
+                <div class="board-item">
+                    <img src="https://www.dutchinternationalschools.nl/wp-content/uploads/2016/07/igcse.png" alt="IGCSE Logo" class="board-logo">
+                    <h3>IGCSE</h3>
+                </div>
+                <div class="board-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/International_Baccalaureate_Logo.svg/2048px-International_Baccalaureate_Logo.svg.png" alt="IB Logo" class="board-logo">
+                    <h3>IB</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Classes Section -->
+    <section class="section classes" id="classes">
+        <div class="container">
+            <h2 class="section-title">Subjects and Classes We Offer</h2>
+            <div class="classes-grid">
+                <div class="class-card">
+                    <h3>LKG to 12th Class</h3>
+                    <p>Complete school curriculum coverage with personalized attention</p>
+                </div>
+                <div class="class-card">
+                    <h3>Intermediate</h3>
+                    <p>MPC, BiPC, CEC, and other intermediate combinations</p>
+                </div>
+                <div class="class-card">
+                    <h3>Degree & BTech</h3>
+                    <p>Higher education support for engineering and degree students</p>
+                </div>
+                <div class="class-card">
+                    <h3>Accounts</h3>
+                    <p>Commerce and accounting subjects for all levels</p>
+                </div>
+                <div class="class-card">
+                    <h3>Languages</h3>
+                    <p>English, Telugu, and Hindi language proficiency</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Entrance Exams Section -->
+    <section class="section exams">
+        <div class="container">
+            <h2 class="section-title">Ace Competitive Exams with Us</h2>
+            <div class="exams-grid">
+                <div class="exam-badge">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>IIT-SAT</h3>
+                </div>
+                <div class="exam-badge">
+                    <i class="fas fa-flask"></i>
+                    <h3>EAMCET</h3>
+                </div>
+                <div class="exam-badge">
+                    <i class="fas fa-heartbeat"></i>
+                    <h3>NEET</h3>
+                </div>
+                <div class="exam-badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Sainik School</h3>
+                </div>
+                <div class="exam-badge">
+                    <i class="fas fa-star"></i>
+                    <h3>Navodaya</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="section why-choose">
+        <div class="container">
+            <h2 class="section-title">Why Vinni's?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>Personal Attention</h3>
+                    <p>One-on-one focused teaching tailored to each student's learning pace and style</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Regular Progress Tracking</h3>
+                    <p>Continuous assessment and feedback to ensure steady improvement</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-home"></i>
+                    <h3>Professional & Safe Home Tuition</h3>
+                    <p>Comfortable learning environment in the safety of your home</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-medal"></i>
+                    <h3>Experienced Across All Levels</h3>
+                    <p>Expertise in teaching from primary school to competitive exam preparation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials">
+        <div class="container">
+            <h2 class="section-title">What Parents Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://cdn-icons-png.flaticon.com/512/780/780248.png" alt="Parent" class="testimonial-avatar">
+                        <div>
+                            <h4>Priya Sharma</h4>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p>"Vinitha ma'am has been incredible with my daughter's studies. Her grades improved significantly, and she's now more confident in mathematics. Highly recommended!"</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3170/3170731.png" alt="Parent" class="testimonial-avatar">
+                        <div>
+                            <h4>Rajesh Kumar</h4>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p>"My son cleared EAMCET with excellent rank thanks to Vinni's guidance. Her teaching methods are very effective and student-friendly."</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2829/2829842.png" alt="Parent" class="testimonial-avatar">
+                        <div>
+                            <h4>Lakshmi Devi</h4>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p>"Professional, punctual, and passionate about teaching. Vinitha ma'am helped my daughter excel in her 10th board exams. Thank you!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section" id="cta">
+        <div class="container">
+            <h2 class="section-title" style="color: var(--white);">Book a Free Demo Now</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Experience our teaching methodology with a complimentary demo session</p>
+            
+            <form class="cta-form" id="demoForm">
+                <div class="form-group">
+                    <label for="name">Student Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="mobile">Mobile Number</label>
+                    <input type="tel" id="mobile" name="mobile" required>
+                </div>
+                <div class="form-group">
+                    <label for="class">Class</label>
+                    <select id="class" name="class" required>
+                        <option value="">Select Class</option>
+                        <option value="LKG">LKG</option>
+                        <option value="UKG">UKG</option>
+                        <option value="1st">1st Class</option>
+                        <option value="2nd">2nd Class</option>
+                        <option value="3rd">3rd Class</option>
+                        <option value="4th">4th Class</option>
+                        <option value="5th">5th Class</option>
+                        <option value="6th">6th Class</option>
+                        <option value="7th">7th Class</option>
+                        <option value="8th">8th Class</option>
+                        <option value="9th">9th Class</option>
+                        <option value="10th">10th Class</option>
+                        <option value="11th">11th Class</option>
+                        <option value="12th">12th Class</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Degree">Degree</option>
+                        <option value="BTech">BTech</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="e.g., Mathematics, Physics, English" required>
+                </div>
+                <button type="submit" class="cta-button">Book Free Demo</button>
+            </form>
+            
+            <a href="https://wa.me/919985726692" class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp Us
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone</h3>
+                    <p>+91 99857 26692</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Location</h3>
+                    <p>Visakhapatnam, Andhra Pradesh</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Tutor</h3>
+                    <p>Vinitha</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Vinni's Home Tuition</h3>
+                    <p>Empowering students to achieve their academic dreams through personalized home tuition in Visakhapatnam.</p>
+                    <div class="social-icons">
+                        <a href="https://wa.me/919985726692" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/home_tuitions623?igsh=Z20wOGFnaTh3czlv" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#classes">Classes</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#cta">Book Demo</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-phone"></i> +91 99857 26692</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Visakhapatnam, AP</p>
+                    <p><i class="fas fa-envelope"></i> Contact via WhatsApp</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Vinni's Home Tuition. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Form Submission
+        const demoForm = document.getElementById('demoForm');
+        demoForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const mobile = formData.get('mobile');
+            const studentClass = formData.get('class');
+            const subject = formData.get('subject');
+            
+            // Create WhatsApp message
+            const message = `Hello! I would like to book a free demo session.
+            
+Student Name: ${name}
+Mobile: ${mobile}
+Class: ${studentClass}
+Subject: ${subject}
+
+Please let me know the available time slots.`;
+            
+            const whatsappUrl = `https://wa.me/919985726692?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            
+            // Reset form
+            this.reset();
+            alert('Thank you! You will be redirected to WhatsApp to complete your booking.');
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'var(--white)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for animation
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919985726692?text=Hello%20Vinni's%20Home%20Tuition!%20I'm%20interested%20in%20learning%20more%20about%20your%20home%20tuition%20services.%20Please%20share%20more%20details." class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</body>
+</html>
