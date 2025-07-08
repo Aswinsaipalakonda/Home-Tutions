@@ -2,7 +2,7 @@
 
 A fully responsive and modern website for home tuition services, built using **HTML**, **CSS**, and **JavaScript**. This project aims to showcase tuition services, tutor profiles, class schedules, contact forms, and more in a clean and user-friendly layout.
 
-Which is the fully responsive for 
+Which is the 
 ---
 
 ## 🌐 Live Preview
