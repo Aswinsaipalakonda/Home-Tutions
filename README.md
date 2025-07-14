@@ -27,5 +27,4 @@ A fully responsive and modern website for home tuition services, built using **H
 
 ---
 
-## 📁 Folder Structure
 
