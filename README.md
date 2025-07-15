@@ -1,6 +1,6 @@
 # 🏠 Home Tuition Website
 
-A fully responsive and modern website for home tuition services, built using **HTML**, **CSS**, and **JavaScript**. This project aims to showcase tuition services, tutor profiles, class schedules, contact forms, and more in a clean and user-friendly layout.
+A fully responsive and modern website for home tuition services, built using **HTML**, **CSS**, and **JavaScript**. This project aims to showcase tuition services, tutor profiles, class schedules, contact forms, and more in a sleek, clean and user-friendly layout.
 
 ---
 
