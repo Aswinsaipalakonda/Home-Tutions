@@ -27,6 +27,6 @@ A fully responsive and modern website for home tuition services, built using **H
 
 ---
 
-## Done by Aswin
+## Done by Aswin Sai
 
 
