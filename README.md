@@ -27,6 +27,8 @@ A fully responsive and modern website for home tuition services, built using **H
 
 ---
 
+LinkedIn: (https://linkedin.com/in/aswinsaipalakonda/)
+
 Email: aswinsaipalakonda@gmail.com
 
 # 🤝 Contributing: 
