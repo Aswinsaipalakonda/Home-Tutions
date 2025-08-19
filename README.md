@@ -28,7 +28,7 @@ A fully responsive and modern website for home tuition services, built using **H
 ---
 
 ## 🙋‍♂️ About the Developer
-Hi, I'm **Aswin Sai** !
+Hi, I'm **Aswin Sai** ! I'm passionate about front-end development and building fun, interactive web projects.
 Feel free to check out more of my work or connect with me online.
 
 LinkedIn: (https://linkedin.com/in/aswinsaipalakonda/)
