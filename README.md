@@ -27,3 +27,5 @@ A fully responsive and modern website for home tuition services, built using **H
 
 ---
 
+# 🤝 Contributing: 
+Contributions are welcome! If you'd like to improve this website or add new features, feel free to fork the repo and submit a pull request.
